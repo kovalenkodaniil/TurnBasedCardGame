@@ -1,4 +1,5 @@
 ﻿using System;
+using _Core.Features.Combat.CombatCharacters;
 
 namespace _Core.Features.Cards.Scripts
 {
@@ -8,9 +9,9 @@ namespace _Core.Features.Cards.Scripts
         public CardEffect effect;
         public int value;
 
-        public void Apply()
+        public void Apply(CombatBaseCharacter character)
         {
-            effect.Apply();
+            effect.Apply(character, value);
         }
     }
 }

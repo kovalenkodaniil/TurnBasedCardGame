@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Core.Features.Combat.CombatCharacters;
+using UnityEngine;
 
 namespace _Core.Features.Cards.Scripts
 {
@@ -6,7 +7,7 @@ namespace _Core.Features.Cards.Scripts
     {
         [field:SerializeField] public string Description { get; protected set; }
 
-        public virtual void Apply()
+        public virtual void Apply(CombatBaseCharacter character, int effectValue = 0)
         {
         }
     }
