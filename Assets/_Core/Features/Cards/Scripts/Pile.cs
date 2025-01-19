@@ -37,7 +37,7 @@ namespace _Core.Features.Cards.Scripts
             if (_cardsInPile.Count <= 0)
                 Shuffle();
             
-            CardConfig drawnCard = _cardsInPile[Random.Range(0, _discardedCards.Count)];
+            CardConfig drawnCard = _cardsInPile[Random.Range(0, _cardsInPile.Count)];
             _cardsInPile.Remove(drawnCard);
 
             PileCount.Value = _cardsInPile.Count;

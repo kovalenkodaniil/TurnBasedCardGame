@@ -1,11 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using _Core.Features.Combat.CombatCharacters;
+using R3;
 using UnityEngine;
 
 namespace _Core.Features.Combat
 {
     public class CombatCharacterManager : MonoBehaviour
     {
+        public Subject<Unit> OnEnemyTurnFinished = new();
+
         [SerializeField] private Transform _playerCharacterParent;
         [SerializeField] private Transform _enemyCharactersParent;
         [SerializeField] private CombatCharacterView _playerPrefab;
@@ -51,6 +55,16 @@ namespace _Core.Features.Combat
             return false;
         }
 
+        public void StartEnemyTurn()
+        {
+            _enemies.ForEach(enemy =>
+            {
+                //
+            });
+
+            StartCoroutine(WaitDelay());
+        }
+
         private void CreatePlayerCharacter()
         {
             _player = Instantiate(_playerPrefab, _playerCharacterParent);
@@ -66,6 +80,13 @@ namespace _Core.Features.Combat
             enemy.Init(new CombatEnemyCharacter(10));
             
             _enemies.Add(enemy);
+        }
+
+        private IEnumerator WaitDelay()
+        {
+            yield return new WaitForSeconds(0.8f);
+            
+            OnEnemyTurnFinished.OnNext(Unit.Default);
         }
     }
 }

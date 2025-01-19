@@ -2,41 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="190a6f3f-f815-4fbd-821d-ce78ddba349f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatBaseCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatBaseCharacter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatCharacterView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatCharacterView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyCharacter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatPlayerCharacter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatPlayerCharacter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/Components.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/Components/ArmorComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/Components/ArmorComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/Components/HealthComponent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/Components/HealthComponent.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEventBus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEventBus.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI/CombatUI.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI/CombatUI.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/CardConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/CardConfig.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Pile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Pile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/CombatBaseCharacter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/CombatBaseCharacter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/CombatEnemyCharacter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/CombatEnemyCharacter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/CombatPlayerCharacter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/CombatPlayerCharacter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Components.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Components/ArmorComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Components/ArmorComponent.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Components/HealthComponent.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Components/HealthComponent.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +81,7 @@
       <updated>1737042324279</updated>
       <workItem from="1737042339676" duration="7118000" />
       <workItem from="1737102356781" duration="12888000" />
-      <workItem from="1737304121612" duration="2682000" />
+      <workItem from="1737304121612" duration="9422000" />
     </task>
     <servers />
   </component>

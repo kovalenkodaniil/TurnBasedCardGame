@@ -1,6 +1,7 @@
 ﻿using System;
 using _Core.Features.Combat;
 using Core.Data;
+using R3;
 using UnityEngine;
 
 namespace _Core.Features.Cards.Scripts
@@ -18,6 +19,21 @@ namespace _Core.Features.Cards.Scripts
 
             _pileUI.Init(_pile);
             _playerHand.Init(_pile, characterManager);
+
+            /*_turnManager = turnManager;
+            _turnManager.OnTurnStarted
+                .Subscribe(_ => DrawNewHand())
+                .AddTo(this);*/
+        }
+
+        public void DrawNewHand()
+        {
+            _playerHand.DrawHand();
+        }
+
+        public void DiscardHand()
+        {
+            _playerHand.ClearHand();
         }
     }
 }

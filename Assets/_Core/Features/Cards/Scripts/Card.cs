@@ -58,17 +58,17 @@ namespace _Core.Features.Cards.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log("Фокус ин");
+            //Debug.Log("Фокус ин");
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Debug.Log("Фокус out");
+            //Debug.Log("Фокус out");
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log("OnBeginDrag");
+            //Debug.Log("OnBeginDrag");
         }
 
         public void OnEndDrag(PointerEventData eventData)
@@ -99,7 +99,7 @@ namespace _Core.Features.Cards.Scripts
 
         public void OnDrag(PointerEventData eventData)
         {
-            Debug.Log("OnDrag");
+            //Debug.Log("OnDrag");
         }
 
         private void TryToUse(CombatBaseCharacter character)

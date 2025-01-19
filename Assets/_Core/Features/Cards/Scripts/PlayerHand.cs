@@ -23,10 +23,21 @@ namespace _Core.Features.Cards.Scripts
             _cardPool.Init(_cardPrefab, _cardParent);
             _pile = pile;
             _characterManager = characterManager;
+        }
 
+        public void DrawHand()
+        {
             for (int i = 0; i < 5; i++)
             {
                 DrawCard();
+            }
+        }
+        
+        public void ClearHand()
+        {
+            for (int i = 0; i < _cards.Count; i++)
+            {
+                DiscardCard(_cards[i]);
             }
         }
 
@@ -34,8 +45,8 @@ namespace _Core.Features.Cards.Scripts
         {
             Card newCard = _cardPool.GetCard();
             
-            newCard.transform.SetParent(_cardParent);
             newCard.Init(_pile.DrawCard(), _characterManager);
+            newCard.transform.SetParent(_cardParent);
 
             newCard.OnUsed
                 .Subscribe(DiscardCard)
