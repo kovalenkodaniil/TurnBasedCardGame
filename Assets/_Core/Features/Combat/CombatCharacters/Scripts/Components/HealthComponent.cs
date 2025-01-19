@@ -16,6 +16,8 @@ namespace _Core.Features.Combat.CombatCharacters.Components
         {
             _health = new ReactiveProperty<int>(currentHealth);
             MaxHealth = maxHealth;
+
+            OnDied = new Subject<Unit>();
         }
 
         public void TakeDamage(int value)

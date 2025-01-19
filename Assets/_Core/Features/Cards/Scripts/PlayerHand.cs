@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Core.Features.Combat;
 using R3;
 using UnityEngine;
 
@@ -13,13 +14,15 @@ namespace _Core.Features.Cards.Scripts
         private List<Card> _cards;
         private CardPool _cardPool;
         private Pile _pile;
+        private CombatCharacterManager _characterManager;
 
-        public void Init(Pile pile)
+        public void Init(Pile pile, CombatCharacterManager characterManager)
         {
             _cards = new List<Card>();
             _cardPool = new CardPool();
             _cardPool.Init(_cardPrefab, _cardParent);
             _pile = pile;
+            _characterManager = characterManager;
 
             for (int i = 0; i < 5; i++)
             {
@@ -32,7 +35,7 @@ namespace _Core.Features.Cards.Scripts
             Card newCard = _cardPool.GetCard();
             
             newCard.transform.SetParent(_cardParent);
-            newCard.Init(_pile.DrawCard());
+            newCard.Init(_pile.DrawCard(), _characterManager);
 
             newCard.OnUsed
                 .Subscribe(DiscardCard)

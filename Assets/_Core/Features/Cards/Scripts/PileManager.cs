@@ -1,4 +1,5 @@
 ﻿using System;
+using _Core.Features.Combat;
 using Core.Data;
 using UnityEngine;
 
@@ -11,17 +12,12 @@ namespace _Core.Features.Cards.Scripts
 
         private Pile _pile;
 
-        public void Awake()
-        {
-            Init();
-        }
-
-        public void Init()
+        public void Init(CombatCharacterManager characterManager)
         {
             _pile = new Pile(StaticDataProvider.Get<CardDataProvider>().cardAssets.startingPile);
 
             _pileUI.Init(_pile);
-            _playerHand.Init(_pile);
+            _playerHand.Init(_pile, characterManager);
         }
     }
 }

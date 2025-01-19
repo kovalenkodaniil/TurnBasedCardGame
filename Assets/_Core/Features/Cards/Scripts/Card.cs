@@ -1,4 +1,6 @@
-﻿using DG.Tweening;
+﻿using _Core.Features.Combat;
+using _Core.Features.Combat.CombatCharacters;
+using DG.Tweening;
 using R3;
 using TMPro;
 using UnityEngine;
@@ -24,7 +26,9 @@ namespace _Core.Features.Cards.Scripts
 
         public CardConfig Config { get; private set; }
 
-        public void Init(CardConfig cardConfig)
+        private CombatCharacterManager _characterManager;
+
+        public void Init(CardConfig cardConfig, CombatCharacterManager characterManager)
         {
             gameObject.SetActive(true);
             
@@ -34,6 +38,7 @@ namespace _Core.Features.Cards.Scripts
             _art.sprite = cardConfig.icon;
 
             Config = cardConfig;
+            _characterManager = characterManager;
         }
 
         public void PlayDiscardAnimation(Vector3 discardPosition)
@@ -68,15 +73,38 @@ namespace _Core.Features.Cards.Scripts
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            Debug.Log("OnEndDrag");
+            CombatBaseCharacter target = null;
             
-            OnUsed.OnNext(this);
-            OnUsed.OnCompleted();
+            switch (Config.targetType)
+            {
+                case EnumTargetType.Player:
+                    if (_characterManager.IsMouseOnPlayer(out CombatBaseCharacter player))
+                        target = player;
+                    break;
+                
+                case EnumTargetType.Enemy:
+                    if (_characterManager.IsMouseOnEnemy(out CombatBaseCharacter enemy))
+                        target = enemy;
+                    break;
+            }
+
+            if (target != null)
+            {
+                TryToUse(target);
+            
+                OnUsed.OnNext(this);
+                OnUsed.OnCompleted();
+            }
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             Debug.Log("OnDrag");
+        }
+
+        private void TryToUse(CombatBaseCharacter character)
+        {
+            Config.effects.ForEach(effect => { effect.Apply(character); });
         }
     }
 }

@@ -9,6 +9,13 @@ namespace _Core.Features.Cards.Scripts
         public string name;
         public Sprite icon;
         public int manaCost;
+        public EnumTargetType targetType;
         public List<CardEffectData> effects;
+    }
+    
+    public enum EnumTargetType
+    {
+        Player = 0,
+        Enemy = 1
     }
 }
