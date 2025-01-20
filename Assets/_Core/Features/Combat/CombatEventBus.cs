@@ -42,6 +42,7 @@ namespace _Core.Features.Combat
                 .Subscribe(_ =>
                 {
                     _pileManager.DrawNewHand();
+                    _characterManager.PrepareNewTurn();
                     _turnManager.NextStep();
                 })
                 .AddTo(_disposable);

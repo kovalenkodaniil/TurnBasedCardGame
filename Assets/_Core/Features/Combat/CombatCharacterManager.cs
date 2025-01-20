@@ -16,7 +16,7 @@ namespace _Core.Features.Combat
         [SerializeField] private Transform _playerCharacterParent;
         [SerializeField] private Transform _enemyCharactersParent;
         [SerializeField] private CombatCharacterView _playerPrefab;
-        [SerializeField] private CombatCharacterView _enemyPrefab;
+        [SerializeField] private CombatEnemyView _enemyPrefab;
 
         private CombatCharacterView _player;
         private List<EnemyCombatPresenter> _enemies;
@@ -60,6 +60,11 @@ namespace _Core.Features.Combat
             return false;
         }
 
+        public void PrepareNewTurn()
+        {
+            _enemies.ForEach(enemy => enemy.UpdatePlayerAction());
+        }
+
         public void StartEnemyTurn()
         {
             if (_enemies.Count > 0)
@@ -74,6 +79,7 @@ namespace _Core.Features.Combat
 
             if (enemyIndex >= _enemies.Count)
             {
+                Debug.Log("No enemy more");
                 EndEnemyTurn();
                 return;
             }
@@ -92,7 +98,7 @@ namespace _Core.Features.Combat
         {
             _enemies = new List<EnemyCombatPresenter>();
             
-            CombatCharacterView view = Instantiate(_enemyPrefab, _enemyCharactersParent);
+            CombatEnemyView view = Instantiate(_enemyPrefab, _enemyCharactersParent);
 
             EnemyConfig config = StaticDataProvider.Get<EnemyDataProvider>().enemyAsset.enemyConfigs[0];
             EnemyCombatPresenter enemy = new EnemyCombatPresenter(config, view, this);

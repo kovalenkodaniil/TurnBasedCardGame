@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using _Core.Features.Combat.CombatCharacters.Components;
 using _Core.Features.Enemy.Data;
-using _Core.Features.Enemy.Scripts;
 using R3;
 
 namespace _Core.Features.Combat.CombatCharacters
@@ -10,10 +9,10 @@ namespace _Core.Features.Combat.CombatCharacters
     public class CombatEnemyCharacter : CombatBaseCharacter
     {
         private EnemyConfig data;
-        private int _currentTurnIndex;
         private Queue<EnemyAction> _enemyIntentions;
 
         public bool IsHaveIntentions => _enemyIntentions.Count > 0;
+        public int CurrentTurnIndex { get; private set; }
 
         public CombatEnemyCharacter(EnemyConfig config)
         {
@@ -23,7 +22,7 @@ namespace _Core.Features.Combat.CombatCharacters
             data = config;
             HealthComponent = new HealthComponent(config.health, config.health);
             ArmorComponent = new ArmorComponent();
-            _currentTurnIndex = 0;
+            CurrentTurnIndex = 0;
             _enemyIntentions = new Queue<EnemyAction>();
 
             HealthComponent.OnDied
@@ -31,12 +30,12 @@ namespace _Core.Features.Combat.CombatCharacters
                 .AddTo(disposable);
         }
 
-        public void StartTurn()
+        public void UpdateIntentions()
         {
-            if (_currentTurnIndex > data.turns.Count)
-                _currentTurnIndex = 0;
+            if (CurrentTurnIndex >= data.turns.Count)
+                CurrentTurnIndex = 0;
             
-            data.turns[_currentTurnIndex].actions.ForEach(action =>
+            data.turns[CurrentTurnIndex].actions.ForEach(action =>
             {
                 _enemyIntentions.Enqueue(action);
             });
@@ -45,6 +44,7 @@ namespace _Core.Features.Combat.CombatCharacters
         public void EndTurn()
         {
             _enemyIntentions.Clear();
+            CurrentTurnIndex++;
         }
 
         public void ExecuteAction(CombatCharacterManager characterManager, Action callback = null)
