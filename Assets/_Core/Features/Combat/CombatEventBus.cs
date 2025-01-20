@@ -12,6 +12,7 @@ namespace _Core.Features.Combat
         private CombatUI _combatUI;
         private PileManager _pileManager;
         private CombatCharacterManager _characterManager;
+        private CombatEndHandler _combatEndHandler;
 
         #endregion
 
@@ -22,12 +23,17 @@ namespace _Core.Features.Combat
             _disposable = new CompositeDisposable();
         }
 
-        public void Init(TurnManager turnManager, CombatUI combatUI, PileManager pileManager, CombatCharacterManager characterManager)
+        public void Init(TurnManager turnManager
+            , CombatUI combatUI
+            , PileManager pileManager
+            , CombatCharacterManager characterManager
+            , CombatEndHandler combatEndHandler)
         {
             _turnManager = turnManager;
             _combatUI = combatUI;
             _pileManager = pileManager;
             _characterManager = characterManager;
+            _combatEndHandler = combatEndHandler;
 
             SetupTurnManager();
             SetupUI();
@@ -74,8 +80,7 @@ namespace _Core.Features.Combat
             _combatUI.OnEndTurnPressed
                 .Subscribe(_ =>
                 {
-                    _pileManager.DiscardHand();
-                    _turnManager.NextStep();
+                    _pileManager.DiscardHand(() => _turnManager.NextStep());
                 })
                 .AddTo(_disposable);
         }
@@ -88,6 +93,24 @@ namespace _Core.Features.Combat
                     _turnManager.NextStep();
                 })
                 .AddTo(_disposable);
+            
+            _characterManager.OnPlayerDefeated
+                .Subscribe(_ =>
+                {
+                    _combatEndHandler.LosePlayer();
+                })
+                .AddTo(_disposable);
+            
+            _characterManager.OnAllEnemyDefeated
+                .Subscribe(_ =>
+                {
+                    _combatEndHandler.WinPLayer();
+                })
+                .AddTo(_disposable);
+        }
+
+        private void SetupCombatEndHandler()
+        {
         }
     }
 }

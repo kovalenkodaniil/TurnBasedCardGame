@@ -11,12 +11,19 @@ namespace _Core.Features.Enemy.Scripts
     public class EnemyCombatPresenter
     {
         public Subject<EnemyCombatPresenter> OnTurnEnded;
+        public Subject<EnemyCombatPresenter> OnDefeated;
+
+        #region Dependencies
 
         private CombatEnemyCharacter _model;
         private CombatEnemyView _view;
         private EnemyConfig _config;
         private CombatCharacterManager _characterManager;
 
+        #endregion
+
+        private CompositeDisposable _disposable;
+        
         public CombatEnemyCharacter Model => _model;
 
         public EnemyCombatPresenter(EnemyConfig config, CombatEnemyView view, CombatCharacterManager characterManager)
@@ -26,9 +33,12 @@ namespace _Core.Features.Enemy.Scripts
             _model = new CombatEnemyCharacter(config);
             _characterManager = characterManager;
 
-            OnTurnEnded = new Subject<EnemyCombatPresenter>();
-            
             _view.Init(_model);
+            
+            OnTurnEnded = new Subject<EnemyCombatPresenter>();
+            OnDefeated = new Subject<EnemyCombatPresenter>();
+            _disposable = new CompositeDisposable();
+            _model.OnDied.Subscribe(Destroy).AddTo(_disposable);
         }
 
         public bool IsMouseOnEnemy(Vector3 mousePosition) => _view.IsPositionOnCharacter(mousePosition);
@@ -43,10 +53,18 @@ namespace _Core.Features.Enemy.Scripts
         {
             StartCoroutine(TurnRoutine());
         }
-        
+
+        private void Destroy(CombatBaseCharacter character)
+        {
+            OnDefeated.OnNext(this);
+            Object.Destroy(_view.gameObject);
+            _model.Destroy();
+            
+            _disposable.Dispose();
+        }
+
         private IEnumerator TurnRoutine()
         {
-            Debug.Log($"_model.IsHaveIntentions ={_model.IsHaveIntentions}");
             while (_model.IsHaveIntentions)
             {
                 bool isExecuted = default;

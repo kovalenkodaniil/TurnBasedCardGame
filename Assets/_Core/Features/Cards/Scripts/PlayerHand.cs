@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using _Core.Features.Combat;
-using R3;
 using UnityEngine;
 
 namespace _Core.Features.Cards.Scripts
@@ -16,9 +15,12 @@ namespace _Core.Features.Cards.Scripts
         private Pile _pile;
         private CombatCharacterManager _characterManager;
 
+        public int CardInHand { get; private set; }
+
         public void Init(Pile pile, CombatCharacterManager characterManager)
         {
             _cards = new List<Card>();
+            CardInHand = 0;
             _cardPool = new CardPool();
             _cardPool.Init(_cardPrefab, _cardParent);
             _pile = pile;
@@ -37,7 +39,10 @@ namespace _Core.Features.Cards.Scripts
         {
             for (int i = 0; i < _cards.Count; i++)
             {
-                DiscardCard(_cards[i]);
+                if (_cards[i].gameObject.activeSelf)
+                {
+                    DiscardCard(_cards[i]);
+                }
             }
         }
 
@@ -48,9 +53,8 @@ namespace _Core.Features.Cards.Scripts
             newCard.Init(_pile.DrawCard(), _characterManager);
             newCard.transform.SetParent(_cardParent);
 
-            newCard.OnUsed
-                .Subscribe(DiscardCard)
-                .AddTo(this);
+            CardInHand++;
+            newCard.OnUsed += DiscardCard;
             
             _cards.Add(newCard);
         }
@@ -60,15 +64,19 @@ namespace _Core.Features.Cards.Scripts
             discardedCard.transform.SetParent(_discardPile);
             discardedCard.PlayDiscardAnimation(_discardPile.position);
 
-            discardedCard.OnDiscarded
-                .Subscribe(ReturnCardToPool)
-                .AddTo(this);
+            discardedCard.OnDiscarded += ReturnCardToPool;
         }
 
         private void ReturnCardToPool(Card card)
         {
+            card.OnDiscarded -= ReturnCardToPool;
+            card.OnUsed -= DiscardCard;
+            
             _pile.DiscardCard(card.Config);
             _cardPool.ReturnCard(card);
+            _cards.Remove(card);
+
+            CardInHand--;
         }
     }
 }

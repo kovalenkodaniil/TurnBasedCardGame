@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using _Core.Features.Combat;
 using Core.Data;
 using R3;
@@ -26,9 +27,21 @@ namespace _Core.Features.Cards.Scripts
             _playerHand.DrawHand();
         }
 
-        public void DiscardHand()
+        public void DiscardHand(Action callback)
         {
-            _playerHand.ClearHand();
+            StartCoroutine(PlayerTurnEndRoutine(callback));
+        }
+
+        private IEnumerator PlayerTurnEndRoutine(Action callback)
+        {
+            if (_playerHand.CardInHand > 0)
+            {
+                _playerHand.ClearHand();
+            
+                yield return new WaitForSeconds(0.4f);
+            }
+
+            callback?.Invoke();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace _Core.Features.Combat.CombatCharacters
 
         #region BasicMethods
 
-        public virtual void Init(){}
+        public void Destroy() => OnDied.OnCompleted();
 
         public void TakeDamage(int damage) => HealthComponent.TakeDamage(ArmorComponent.DecreaseDamage(damage));
 

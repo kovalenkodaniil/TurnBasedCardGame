@@ -2,21 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="190a6f3f-f815-4fbd-821d-ce78ddba349f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/pnl_enemy_actions.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/pnl_enemy_actions.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Prefabs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Prefabs/EnemyAction.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Prefabs/EnemyAction.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/View.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/View/EnemyActionView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/View/EnemyActionView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEndHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEndHandler.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/IPopup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/IPopup.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/PopupLose.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/PopupLose.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/PopupWin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/PopupWin.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Prefabs/---PopupLose---.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Prefabs/---PopupLose---.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Prefabs/---PopupWin---.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Prefabs/---PopupWin---.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/panel_inventory 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/panel_inventory 1.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Pile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Pile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Prefabs/EnemyCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Prefabs/EnemyCharacter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatBaseCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatBaseCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEventBus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEventBus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/EnemyCombatPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/EnemyCombatPresenter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity" afterDir="false" />
     </list>
@@ -28,6 +40,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e1349e8da9c0471283f06e515075baad91400/3d/3c9dc864/ReadOnlyReactiveProperty`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.r3@9b18209448/Runtime/UnityProviderInitializer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e1349e8da9c0471283f06e515075baad91400/4e/90648aca/Subject`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e1349e8da9c0471283f06e515075baad91400/dd/ee3e3de4/ReactiveProperty`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -85,7 +98,7 @@
       <workItem from="1737042339676" duration="7118000" />
       <workItem from="1737102356781" duration="12888000" />
       <workItem from="1737304121612" duration="10098000" />
-      <workItem from="1737385649084" duration="11482000" />
+      <workItem from="1737385649084" duration="19985000" />
     </task>
     <servers />
   </component>

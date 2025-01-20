@@ -1,7 +1,7 @@
-﻿using _Core.Features.Combat;
+﻿using System;
+using _Core.Features.Combat;
 using _Core.Features.Combat.CombatCharacters;
 using DG.Tweening;
-using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,18 +11,13 @@ namespace _Core.Features.Cards.Scripts
 {
     public class Card : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
-        public Subject<Card> OnUsed = new Subject<Card>();
-        public Subject<Card> OnDiscarded = new Subject<Card>();
+        public event Action<Card> OnUsed;
+        public event Action<Card> OnDiscarded;
 
         [SerializeField] private TMP_Text _name;
         [SerializeField] private TMP_Text _description;
         [SerializeField] private TMP_Text _manaCost;
         [SerializeField] private Image _art;
-
-        /*public string Name { set => _name.text = value; }
-        public string Description { set => _description.text = value; }
-        public string Cost { set => _manaCost.text = value; }
-        public Sprite Art { set => _art.sprite = value; }*/
 
         public CardConfig Config { get; private set; }
 
@@ -45,15 +40,14 @@ namespace _Core.Features.Cards.Scripts
         {
             transform.DOMove(discardPosition, 0.4f).OnComplete(() =>
             {
-                OnDiscarded.OnNext(this);
-                OnDiscarded.OnCompleted();
+                OnDiscarded?.Invoke(this);
             });
         }
 
         public void ClearSubs()
         {
-            OnUsed.OnCompleted();
-            OnDiscarded.OnCompleted();
+            /*OnUsed.OnCompleted();
+            OnDiscarded.OnCompleted();*/
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -92,8 +86,7 @@ namespace _Core.Features.Cards.Scripts
             {
                 TryToUse(target);
             
-                OnUsed.OnNext(this);
-                OnUsed.OnCompleted();
+                OnUsed?.Invoke(this);
             }
         }
 

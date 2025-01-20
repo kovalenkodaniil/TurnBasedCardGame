@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using _Core.Features.Combat.CombatCharacters;
 using _Core.Features.Enemy.Data;
 using _Core.Features.Enemy.Scripts;
 using Core.Data;
 using R3;
+using R3.Triggers;
 using UnityEngine;
 
 namespace _Core.Features.Combat
@@ -12,6 +13,8 @@ namespace _Core.Features.Combat
     public class CombatCharacterManager : MonoBehaviour
     {
         public Subject<Unit> OnEnemyTurnFinished = new();
+        public Subject<Unit> OnPlayerDefeated = new();
+        public Subject<Unit> OnAllEnemyDefeated = new();
 
         [SerializeField] private Transform _playerCharacterParent;
         [SerializeField] private Transform _enemyCharactersParent;
@@ -27,6 +30,11 @@ namespace _Core.Features.Combat
         {
             CreatePlayerCharacter();
             CreateEnemiesCharacters();
+        }
+
+        public void OnDisable()
+        {
+            this.OnDisableAsObservable();
         }
 
         public bool IsMouseOnPlayer(out CombatBaseCharacter player)
@@ -79,7 +87,6 @@ namespace _Core.Features.Combat
 
             if (enemyIndex >= _enemies.Count)
             {
-                Debug.Log("No enemy more");
                 EndEnemyTurn();
                 return;
             }
@@ -92,6 +99,14 @@ namespace _Core.Features.Combat
             _player = Instantiate(_playerPrefab, _playerCharacterParent);
             
             _player.Init(new CombatPlayerCharacter(10,10));
+            
+            _player.Model.OnDied
+                .Subscribe(character =>
+                {
+                    character.Destroy(); 
+                    OnPlayerDefeated.OnNext(Unit.Default);
+                })
+                .AddTo(this);
         }
 
         private void CreateEnemiesCharacters()
@@ -106,6 +121,10 @@ namespace _Core.Features.Combat
             enemy.OnTurnEnded
                 .Subscribe(StartNextEnemyTurn)
                 .AddTo(this);
+
+            enemy.OnDefeated
+                .Subscribe(CheckEnemiesDefeatCondition)
+                .AddTo(this);
             
             _enemies.Add(enemy);
         }
@@ -113,6 +132,14 @@ namespace _Core.Features.Combat
         private void EndEnemyTurn()
         {
             OnEnemyTurnFinished.OnNext(Unit.Default);
+        }
+
+        private void CheckEnemiesDefeatCondition(EnemyCombatPresenter enemy)
+        {
+            _enemies.Remove(enemy);
+            
+            if (_enemies.Count <= 0)
+                OnAllEnemyDefeated.OnNext(Unit.Default);
         }
     }
 }

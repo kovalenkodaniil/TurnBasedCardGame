@@ -48,7 +48,7 @@ namespace _Core.Features.Cards.Scripts
         public void DiscardCard(CardConfig discardedCard)
         {
             _discardedCards.Add(discardedCard);
-            
+
             DiscardCount.Value = _discardedCards.Count;
         }
 
@@ -56,6 +56,9 @@ namespace _Core.Features.Cards.Scripts
         {
             _cardsInPile.AddRange(_discardedCards);
             _discardedCards.Clear();
+            
+            DiscardCount.Value = _discardedCards.Count;
+            PileCount.Value = _cardsInPile.Count;
         }
     }
 }

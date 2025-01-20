@@ -41,7 +41,11 @@ namespace _Core.Features.Combat
             OnTurnEnded.OnCompleted();
         }
 
-        public void StartBattle() => StartStep(EnumTurnState.StartTurn);
+        public void StartBattle()
+        {
+            CurrentState = EnumTurnState.StartTurn;
+            StartStep(EnumTurnState.StartTurn);
+        }
 
         public void NextStep()
         {
