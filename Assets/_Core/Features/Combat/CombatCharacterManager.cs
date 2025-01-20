@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using _Core.Features.Combat.CombatCharacters;
+using _Core.Features.Enemy.Data;
+using _Core.Features.Enemy.Scripts;
+using Core.Data;
 using R3;
 using UnityEngine;
 
@@ -16,8 +19,10 @@ namespace _Core.Features.Combat
         [SerializeField] private CombatCharacterView _enemyPrefab;
 
         private CombatCharacterView _player;
-        private List<CombatCharacterView> _enemies;
-        
+        private List<EnemyCombatPresenter> _enemies;
+
+        public CombatBaseCharacter Player => _player.Model;
+
         public void Init()
         {
             CreatePlayerCharacter();
@@ -42,11 +47,11 @@ namespace _Core.Features.Combat
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            foreach (var enemyView in _enemies)
+            foreach (var enemyPresenter in _enemies)
             {
-                if (enemyView.IsPositionOnCharacter(mousePosition))
+                if (enemyPresenter.IsMouseOnEnemy(mousePosition))
                 {
-                    enemy = enemyView.Model;
+                    enemy = enemyPresenter.Model;
                     return true;
                 }
             }
@@ -57,12 +62,23 @@ namespace _Core.Features.Combat
 
         public void StartEnemyTurn()
         {
-            _enemies.ForEach(enemy =>
-            {
-                //
-            });
+            if (_enemies.Count > 0)
+                _enemies[0].StartTurn();
+            else
+                EndEnemyTurn();
+        }
 
-            StartCoroutine(WaitDelay());
+        private void StartNextEnemyTurn(EnemyCombatPresenter lastEnemy)
+        {
+            int enemyIndex = _enemies.IndexOf(lastEnemy) + 1;
+
+            if (enemyIndex >= _enemies.Count)
+            {
+                EndEnemyTurn();
+                return;
+            }
+            
+            _enemies[enemyIndex].StartTurn();
         }
 
         private void CreatePlayerCharacter()
@@ -74,18 +90,22 @@ namespace _Core.Features.Combat
 
         private void CreateEnemiesCharacters()
         {
-            _enemies = new List<CombatCharacterView>();
+            _enemies = new List<EnemyCombatPresenter>();
             
-            CombatCharacterView enemy = Instantiate(_enemyPrefab, _enemyCharactersParent);
-            enemy.Init(new CombatEnemyCharacter(10));
+            CombatCharacterView view = Instantiate(_enemyPrefab, _enemyCharactersParent);
+
+            EnemyConfig config = StaticDataProvider.Get<EnemyDataProvider>().enemyAsset.enemyConfigs[0];
+            EnemyCombatPresenter enemy = new EnemyCombatPresenter(config, view, this);
+
+            enemy.OnTurnEnded
+                .Subscribe(StartNextEnemyTurn)
+                .AddTo(this);
             
             _enemies.Add(enemy);
         }
 
-        private IEnumerator WaitDelay()
+        private void EndEnemyTurn()
         {
-            yield return new WaitForSeconds(0.8f);
-            
             OnEnemyTurnFinished.OnNext(Unit.Default);
         }
     }

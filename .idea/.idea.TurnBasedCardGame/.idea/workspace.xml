@@ -2,20 +2,62 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="190a6f3f-f815-4fbd-821d-ce78ddba349f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEventBus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEventBus.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI/CombatUI.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI/CombatUI.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/CoroutineManager.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/CoroutineManager/CoroutineManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/CoroutineManager/CoroutineManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/icn_Attack_enemy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/icn_Attack_enemy.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/icn_Heal_enemy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/icn_Heal_enemy.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/icn_Shield_enemy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/icn_Shield_enemy.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Actions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Actions/Armor.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Actions/Armor.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Actions/Attack.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Actions/Attack.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Actions/Heal.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Actions/Heal.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Goblin.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Goblin.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Ogr.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Ogr.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Shaman.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Shaman.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemy Asset.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemy Asset.asset.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyAction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyAction.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionArmor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionArmor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionAttack.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionAttack.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionHeal.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionHeal.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionPattern.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyActions/EnemyActionPattern.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyAsset.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyAsset.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyConfig.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/Data/EnemyConfig.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/EnemyCombatPresenter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/EnemyCombatPresenter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/EnemyTurn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Scripts/EnemyTurn.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/StaticDataProvider/EnemyDataProvider.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/StaticDataProvider/EnemyDataProvider.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Pile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Pile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Scripts/CombatEnemyCharacter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/StaticDataProvider/StaticDataProviderInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/StaticDataProvider/StaticDataProviderInstaller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +123,8 @@
       <updated>1737042324279</updated>
       <workItem from="1737042339676" duration="7118000" />
       <workItem from="1737102356781" duration="12888000" />
-      <workItem from="1737304121612" duration="9422000" />
+      <workItem from="1737304121612" duration="10098000" />
+      <workItem from="1737385649084" duration="8258000" />
     </task>
     <servers />
   </component>

@@ -19,11 +19,6 @@ namespace _Core.Features.Cards.Scripts
 
             _pileUI.Init(_pile);
             _playerHand.Init(_pile, characterManager);
-
-            /*_turnManager = turnManager;
-            _turnManager.OnTurnStarted
-                .Subscribe(_ => DrawNewHand())
-                .AddTo(this);*/
         }
 
         public void DrawNewHand()
