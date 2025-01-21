@@ -27,7 +27,6 @@ namespace _Core.Features.CoroutineManager
         {
             if (coroutine != null)
             {
-                Debug.Log("Stop coroutine");
                 instance.StopCoroutine(coroutine);
             }
         }

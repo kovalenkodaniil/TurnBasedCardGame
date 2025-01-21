@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61befe827a4470db2e9d1cfe8d83148, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
-  description: "\u0418\u0441\u0446\u0435\u043B\u044F\u0435\u0442"
+  description: "\u0418\u0441\u0446\u0435\u043B\u044F\u0435\u0442 {value} \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F"
   icon: {fileID: 21300000, guid: b62f52abb9410f74991e1368f122b556, type: 3}

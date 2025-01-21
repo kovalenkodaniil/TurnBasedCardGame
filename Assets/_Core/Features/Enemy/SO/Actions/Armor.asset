@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807e1aa5a95a47fc9a7b878d521e4231, type: 3}
   m_Name: Armor
   m_EditorClassIdentifier: 
-  description: "\u0414\u0430\u0435\u0442 \u0431\u0440\u043E\u043D\u044E"
+  description: "\u0414\u0430\u0435\u0442 {value} \u0431\u0440\u043E\u043D\u0438"
   icon: {fileID: 21300000, guid: 4a213c96322b04a4b82eafdb20053aae, type: 3}

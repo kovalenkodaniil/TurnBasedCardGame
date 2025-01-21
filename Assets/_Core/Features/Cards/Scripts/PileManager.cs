@@ -13,12 +13,12 @@ namespace _Core.Features.Cards.Scripts
 
         private Pile _pile;
 
-        public void Init(CombatCharacterManager characterManager)
+        public void Init(CombatCharacterManager characterManager, ManaCounter manaCounter)
         {
             _pile = new Pile(Player.Instance.startData.startCards);
 
             _pileUI.Init(_pile);
-            _playerHand.Init(_pile, characterManager);
+            _playerHand.Init(_pile, characterManager, manaCounter);
         }
 
         public void Reset()

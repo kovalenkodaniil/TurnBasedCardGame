@@ -45,9 +45,11 @@ namespace _Core.Features.Enemy.Scripts
 
         public void Disable() => Destroy();
 
+        public void Attack() => _view.PlayAttackAnimation();
+
         public bool IsMouseOnEnemy(Vector3 mousePosition) => _view.IsPositionOnCharacter(mousePosition);
 
-        public void UpdatePlayerAction()
+        public void UpdateIntentions()
         {
             _model.UpdateIntentions();
             _view.SetNewAction(_config.turns[_model.CurrentTurnIndex]);
@@ -55,6 +57,7 @@ namespace _Core.Features.Enemy.Scripts
 
         public void StartTurn()
         {
+            _model.StartNewTurn();
             _turnCoroutine = StartCoroutine(TurnRoutine());
         }
 
@@ -78,11 +81,13 @@ namespace _Core.Features.Enemy.Scripts
             while (_model.IsHaveIntentions)
             {
                 bool isExecuted = default;
-                _model.ExecuteAction(_characterManager, () => isExecuted = true);
-                yield return new WaitUntil(() => isExecuted);
+                
                 if (_view != null)
                     _view.PlayActionAnimation();
-                yield return new WaitForSeconds(0.5f);   
+                
+                _model.ExecuteAction(_characterManager, this, () => isExecuted = true);
+                yield return new WaitUntil(() => isExecuted);
+                yield return new WaitForSeconds(0.5f);
             }
 
             _model.EndTurn();

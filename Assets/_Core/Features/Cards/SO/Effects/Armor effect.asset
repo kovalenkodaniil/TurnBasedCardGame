@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7328e89239d64d559f4b9075e6a3e9ae, type: 3}
   m_Name: Armor effect
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: "\u0414\u0430\u0435\u0442 \u0431\u0440\u043E\u043D\u044E"
-  value: 1
+  <Description>k__BackingField: "\u0414\u0430\u0435\u0442 {value} \u0431\u0440\u043E\u043D\u0438"

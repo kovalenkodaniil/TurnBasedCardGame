@@ -25,3 +25,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 56b321b3128597a45a35d655569c2088, type: 2}
   - {fileID: 11400000, guid: 057a2e7624172d94099f6a0ec5d619e0, type: 2}
   - {fileID: 11400000, guid: 057a2e7624172d94099f6a0ec5d619e0, type: 2}
+  defaultScale: 1
+  highlightScale: 1.15
+  highlightDuration: 0.2
+  discardDuration: 1
+  midPointHeight: 2
+  discardScale: 0.2
+  discardRotation: {x: 0, y: 0, z: -21}
+  drawDuration: 0.8
+  drawRotation: {x: 0, y: 0, z: 21}
+  drawDelay: 0.1

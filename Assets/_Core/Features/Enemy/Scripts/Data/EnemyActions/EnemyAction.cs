@@ -1,6 +1,6 @@
 ﻿using System;
 using _Core.Features.Combat;
-using _Core.Features.Combat.CombatCharacters;
+using _Core.Features.Enemy.Scripts;
 
 namespace _Core.Features.Enemy.Data
 {
@@ -10,7 +10,7 @@ namespace _Core.Features.Enemy.Data
         public EnemyActionPattern action;
         public int value;
 
-        public void Apply(CombatCharacterManager characterManager, CombatEnemyCharacter enemy)
+        public void Apply(CombatCharacterManager characterManager, EnemyCombatPresenter enemy)
         {
             action.Apply(characterManager, enemy, value);
         }

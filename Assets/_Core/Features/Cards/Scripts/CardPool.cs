@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Core.Features.Combat.UI;
 using UnityEngine;
 
 namespace _Core.Features.Cards.Scripts
@@ -8,9 +9,11 @@ namespace _Core.Features.Cards.Scripts
         private List<Card> _cards;
         private Card _prefab;
         private Transform _baseParent;
+        private ArcRender _arcRender;
 
-        public void Init(Card cardPrefab, Transform parent)
+        public void Init(Card cardPrefab, Transform parent, ArcRender arcRender)
         {
+            _arcRender = arcRender;
             _prefab = cardPrefab;
             _baseParent = parent;
             _cards = new List<Card>();
@@ -25,7 +28,7 @@ namespace _Core.Features.Cards.Scripts
             if (newCard == null)
                 newCard = CreateCard();
 
-            newCard.gameObject.SetActive(true);
+            newCard.Reset();
             _cards.Remove(newCard);
             
             return newCard;
@@ -40,6 +43,7 @@ namespace _Core.Features.Cards.Scripts
         private Card CreateCard()
         {
             Card newCard = Object.Instantiate(_prefab, _baseParent);
+            newCard.SetAcrRender(_arcRender);
             newCard.gameObject.SetActive(false);
             _cards.Add(newCard);
 

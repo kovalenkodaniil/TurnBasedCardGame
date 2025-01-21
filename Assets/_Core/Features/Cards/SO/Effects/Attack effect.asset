@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2210c794d5e247f496121cbcef553505, type: 3}
   m_Name: Attack effect
   m_EditorClassIdentifier: 
-  <Description>k__BackingField: "\u0421\u0438\u043B\u044C\u043D\u043E \u0431\u044C\u0435\u0442"
-  value: 2
+  <Description>k__BackingField: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 {value}
+    \u0443\u0440\u043E\u043D\u0430"

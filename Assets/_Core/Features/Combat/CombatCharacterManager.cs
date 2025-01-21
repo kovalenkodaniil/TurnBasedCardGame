@@ -39,14 +39,15 @@ namespace _Core.Features.Combat
         public void Reset()
         {
             _player.Model.Destroy();
+            Destroy(_player.gameObject);
             _enemies.ForEach(enemy => enemy.Disable());
         }
 
         public bool IsMouseOnPlayer(out CombatBaseCharacter player)
         {
-            Vector3 mpusePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            if (_player.IsPositionOnCharacter(mpusePosition))
+            if (_player.IsPositionOnCharacter(mousePosition))
             {
                 player = _player.Model;
                 return true;
@@ -75,7 +76,8 @@ namespace _Core.Features.Combat
 
         public void PrepareNewTurn()
         {
-            _enemies.ForEach(enemy => enemy.UpdatePlayerAction());
+            _player.Model.StartNewTurn();
+            _enemies.ForEach(enemy => enemy.UpdateIntentions());
         }
 
         public void StartEnemyTurn()

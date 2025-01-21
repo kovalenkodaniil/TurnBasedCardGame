@@ -12,5 +12,17 @@ namespace _Core.Features.Cards.Scripts
 
         [Header("Starting Pile")] 
         public List<CardConfig> startingPile;
+
+        [Header("Animation Setting")] 
+        public float defaultScale;
+        public float highlightScale;
+        public float highlightDuration;
+        public float discardDuration;
+        public float midPointHeight;
+        public float discardScale;
+        public Vector3 discardRotation;
+        public float drawDuration;
+        public Vector3 drawRotation;
+        public float drawDelay;
     }
 }

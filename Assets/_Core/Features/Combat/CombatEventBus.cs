@@ -13,6 +13,7 @@ namespace _Core.Features.Combat
         private PileManager _pileManager;
         private CombatCharacterManager _characterManager;
         private CombatManager _combatManager;
+        private ManaCounter _manaCounter;
 
         #endregion
 
@@ -27,13 +28,15 @@ namespace _Core.Features.Combat
             , CombatUI combatUI
             , PileManager pileManager
             , CombatCharacterManager characterManager
-            , CombatManager combatManager)
+            , CombatManager combatManager
+            , ManaCounter manaCounter)
         {
             _turnManager = turnManager;
             _combatUI = combatUI;
             _pileManager = pileManager;
             _characterManager = characterManager;
             _combatManager = combatManager;
+            _manaCounter = manaCounter;
         }
 
         public void StartBattle()
@@ -54,6 +57,7 @@ namespace _Core.Features.Combat
                 {
                     _pileManager.DrawNewHand();
                     _characterManager.PrepareNewTurn();
+                    _manaCounter.ResetRoundValue();
                     _turnManager.NextStep();
                 })
                 .AddTo(_disposable);

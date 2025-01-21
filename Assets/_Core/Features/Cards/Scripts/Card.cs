@@ -1,6 +1,8 @@
 ﻿using System;
 using _Core.Features.Combat;
 using _Core.Features.Combat.CombatCharacters;
+using _Core.Features.Combat.UI;
+using Core.Data;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -21,52 +23,116 @@ namespace _Core.Features.Cards.Scripts
 
         public CardConfig Config { get; private set; }
 
-        private CombatCharacterManager _characterManager;
+        #region Dependencies
 
-        public void Init(CardConfig cardConfig, CombatCharacterManager characterManager)
+        private CombatCharacterManager _characterManager;
+        private ManaCounter _manaCounter;
+        private ArcRender _arcRender;
+        private CardAssets _cardAssets;
+
+        #endregion
+
+        #region Cashe
+
+        private Tween _tween;
+        private Sequence _tweenSequence;
+        private bool _isInteractable;
+
+        #endregion
+
+
+        public void Init(CardConfig cardConfig, CombatCharacterManager characterManager, ManaCounter manaCounter)
         {
             gameObject.SetActive(true);
             
+            Config = cardConfig;
             _name.text = cardConfig.name;
-            _description.text = cardConfig.effects[0].effect.Description;
             _manaCost.text = cardConfig.manaCost.ToString();
             _art.sprite = cardConfig.icon;
-
-            Config = cardConfig;
+            SetDescription();
+            
             _characterManager = characterManager;
+            _manaCounter = manaCounter;
+            _cardAssets = StaticDataProvider.Get<CardDataProvider>().cardAssets;
+        }
+
+        public void OnDestroy()
+        {
+            _tween?.Kill();
+            _tweenSequence?.Kill();
+        }
+
+        public void SetAcrRender(ArcRender arcRender)
+        {
+            _arcRender = arcRender;
         }
 
         public void PlayDiscardAnimation(Vector3 discardPosition)
         {
-            transform.DOMove(discardPosition, 0.4f).OnComplete(() =>
+            _isInteractable = false;
+            _tweenSequence = DOTween.Sequence();
+
+            Vector3 midPoint = (transform.position + discardPosition) / 2;
+            midPoint.y += _cardAssets.midPointHeight;
+            
+            Vector3[] path = new Vector3[]
             {
-                OnDiscarded?.Invoke(this);
+                midPoint,
+                discardPosition
+            };
+            
+            _tweenSequence.Append(transform.DOPath(path, _cardAssets.discardDuration, PathType.CatmullRom)).SetEase(Ease.Linear);
+            _tweenSequence.Join(transform.DOScale(_cardAssets.discardScale, _cardAssets.discardDuration));
+            _tweenSequence.Join(transform.DORotate(_cardAssets.discardRotation, _cardAssets.discardDuration));
+
+            _tweenSequence.OnComplete(() => OnDiscarded?.Invoke(this));
+        }
+
+        public void PlayDrawAnimation(Transform startPosition, Vector3 handPosition, Transform newParent, float drawDelay)
+        {
+            _tweenSequence = DOTween.Sequence();
+
+            transform.SetParent(startPosition);
+            transform.position = startPosition.position;
+            transform.localScale = new Vector3(_cardAssets.discardScale,_cardAssets.discardScale,_cardAssets.discardScale);
+            transform.rotation = Quaternion.Euler(_cardAssets.drawRotation);
+
+            _tweenSequence.Append(transform.DOMove(handPosition, _cardAssets.drawDuration)).SetDelay(drawDelay);
+            _tweenSequence.Join(transform.DOScale(_cardAssets.defaultScale, _cardAssets.drawDuration));
+            _tweenSequence.Join(transform.DORotate(Vector3.zero, _cardAssets.drawDuration));
+
+            _tweenSequence.OnComplete(() =>
+            {
+                transform.SetParent(newParent);
+                _isInteractable = true;
             });
         }
 
-        public void ClearSubs()
+        public void Reset()
         {
-            /*OnUsed.OnCompleted();
-            OnDiscarded.OnCompleted();*/
+            gameObject.SetActive(true);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            //Debug.Log("Фокус ин");
+            if (!_isInteractable) return;
+            
+            transform.DOScale(_cardAssets.highlightScale, _cardAssets.highlightDuration);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            //Debug.Log("Фокус out");
+            if (!_isInteractable) return;
+            
+            transform.DOScale(_cardAssets.defaultScale, _cardAssets.highlightDuration);
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            //Debug.Log("OnBeginDrag");
-        }
+        public void OnBeginDrag(PointerEventData eventData) { }
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            _arcRender.DisableArc();
+            
             CombatBaseCharacter target = null;
             
             switch (Config.targetType)
@@ -85,19 +151,34 @@ namespace _Core.Features.Cards.Scripts
             if (target != null)
             {
                 TryToUse(target);
-            
-                OnUsed?.Invoke(this);
             }
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            //Debug.Log("OnDrag");
+            _arcRender.DrawArc(transform.position);
+        }
+
+        private void SetDescription()
+        {
+            string description;
+            _description.text = "";
+            
+            Config.effects.ForEach(effect =>
+            {
+                description = effect.effect.Description.Replace("{value}", effect.value.ToString());
+                _description.text += description;
+            });
         }
 
         private void TryToUse(CombatBaseCharacter character)
         {
-            Config.effects.ForEach(effect => { effect.Apply(character); });
+            if (_manaCounter.TrySpend(Config.manaCost))
+            {
+                Config.effects.ForEach(effect => { effect.Apply(character); });
+            
+                OnUsed?.Invoke(this);
+            }
         }
     }
 }

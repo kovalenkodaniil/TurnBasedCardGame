@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d53baa008a4b4a3d999264ae017afad2, type: 3}
   m_Name: Attack
   m_EditorClassIdentifier: 
-  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 \u0443\u0440\u043E\u043D"
+  description: "\u041D\u0430\u043D\u043E\u0441\u0438\u0442 {value} \u0443\u0440\u043E\u043D\u0430"
   icon: {fileID: 21300000, guid: e134d7c96e7a3f543b37c9a658288193, type: 3}

@@ -14,19 +14,25 @@ namespace _Core.Features.Combat
         private PileManager _pileManager;
         private TurnManager _turnManager;
         private CombatEventBus _combatEventBus;
+        private ManaCounter _manaCounter;
 
-        public void Init(CombatCharacterManager characterManager, PileManager pileManager, TurnManager turnManager, CombatEventBus combatEventBus)
+        public void Init(CombatCharacterManager characterManager
+            , PileManager pileManager
+            , TurnManager turnManager
+            , CombatEventBus combatEventBus
+            , ManaCounter manaCounter)
         {
             _characterManager = characterManager;
             _pileManager = pileManager;
             _turnManager = turnManager;
             _combatEventBus = combatEventBus;
+            _manaCounter = manaCounter;
         }
 
         public void StartBattle()
         {
             _characterManager.StartBattle(Player.Instance.gameProgress.CurrentBattle);
-            _pileManager.Init(_characterManager);
+            _pileManager.Init(_characterManager, _manaCounter);
             _combatEventBus.StartBattle();
             
             _turnManager.StartBattle();
@@ -45,7 +51,6 @@ namespace _Core.Features.Combat
         public void LosePlayer()
         {
             _popupLose.Open();
-            
             Player.Instance.Reset();
             
             FinishBattle();

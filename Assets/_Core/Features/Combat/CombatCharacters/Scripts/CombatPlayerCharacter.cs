@@ -5,7 +5,7 @@ namespace _Core.Features.Combat.CombatCharacters
 {
     public class CombatPlayerCharacter : CombatBaseCharacter
     {
-        public CombatPlayerCharacter(int currentHealth, int maxHealth)
+        public CombatPlayerCharacter(int currentHealth, int maxHealth) : base()
         {
             OnDied = new Subject<CombatBaseCharacter>();
             disposable = new CompositeDisposable();

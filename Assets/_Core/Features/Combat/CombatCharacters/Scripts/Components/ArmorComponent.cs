@@ -31,5 +31,7 @@ namespace _Core.Features.Combat.CombatCharacters.Components
 
             _armor.Value += value;
         }
+
+        public void Reset() => _armor.Value = 0;
     }
 }

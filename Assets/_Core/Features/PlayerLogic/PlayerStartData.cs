@@ -9,6 +9,7 @@ namespace _Core.Features.PlayerLogic
     {
         public Sprite art;
         public int startHealth;
+        public int manaPerRound;
         public List<CardConfig> startCards;
     }
 }
