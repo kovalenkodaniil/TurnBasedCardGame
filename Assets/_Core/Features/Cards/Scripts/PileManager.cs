@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections;
 using _Core.Features.Combat;
-using Core.Data;
-using R3;
+using _Core.Features.PlayerLogic;
 using UnityEngine;
 
 namespace _Core.Features.Cards.Scripts
@@ -16,10 +15,16 @@ namespace _Core.Features.Cards.Scripts
 
         public void Init(CombatCharacterManager characterManager)
         {
-            _pile = new Pile(StaticDataProvider.Get<CardDataProvider>().cardAssets.startingPile);
+            _pile = new Pile(Player.Instance.startData.startCards);
 
             _pileUI.Init(_pile);
             _playerHand.Init(_pile, characterManager);
+        }
+
+        public void Reset()
+        {
+            _pile.Destroy();
+            _playerHand.Reset();
         }
 
         public void DrawNewHand()

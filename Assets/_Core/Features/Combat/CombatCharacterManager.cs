@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Core.Features.Combat.CombatCharacters;
-using _Core.Features.Enemy.Data;
+using _Core.Features.Encounters;
 using _Core.Features.Enemy.Scripts;
-using Core.Data;
 using R3;
 using R3.Triggers;
 using UnityEngine;
+using Player = _Core.Features.PlayerLogic.Player;
 
 namespace _Core.Features.Combat
 {
@@ -24,17 +23,23 @@ namespace _Core.Features.Combat
         private CombatCharacterView _player;
         private List<EnemyCombatPresenter> _enemies;
 
-        public CombatBaseCharacter Player => _player.Model;
+        public CombatBaseCharacter PlayerModel => _player.Model;
 
-        public void Init()
+        public void StartBattle(BattleConfig battleConfig)
         {
             CreatePlayerCharacter();
-            CreateEnemiesCharacters();
+            CreateEnemiesCharacters(battleConfig);
         }
 
         public void OnDisable()
         {
             this.OnDisableAsObservable();
+        }
+
+        public void Reset()
+        {
+            _player.Model.Destroy();
+            _enemies.ForEach(enemy => enemy.Disable());
         }
 
         public bool IsMouseOnPlayer(out CombatBaseCharacter player)
@@ -97,8 +102,9 @@ namespace _Core.Features.Combat
         private void CreatePlayerCharacter()
         {
             _player = Instantiate(_playerPrefab, _playerCharacterParent);
-            
-            _player.Init(new CombatPlayerCharacter(10,10));
+
+            _player.Init(new CombatPlayerCharacter(Player.Instance.CurrentHealth, Player.Instance.startData.startHealth));
+            _player.SetAvatar(Player.Instance.startData.art);
             
             _player.Model.OnDied
                 .Subscribe(character =>
@@ -109,24 +115,25 @@ namespace _Core.Features.Combat
                 .AddTo(this);
         }
 
-        private void CreateEnemiesCharacters()
+        private void CreateEnemiesCharacters(BattleConfig battleConfig)
         {
             _enemies = new List<EnemyCombatPresenter>();
             
-            CombatEnemyView view = Instantiate(_enemyPrefab, _enemyCharactersParent);
+            battleConfig.enemies.ForEach(enemyConfig =>
+            {
+                CombatEnemyView view = Instantiate(_enemyPrefab, _enemyCharactersParent);
+                EnemyCombatPresenter enemy = new EnemyCombatPresenter(enemyConfig, view, this);
+                
+                enemy.OnTurnEnded
+                    .Subscribe(StartNextEnemyTurn)
+                    .AddTo(this);
 
-            EnemyConfig config = StaticDataProvider.Get<EnemyDataProvider>().enemyAsset.enemyConfigs[0];
-            EnemyCombatPresenter enemy = new EnemyCombatPresenter(config, view, this);
-
-            enemy.OnTurnEnded
-                .Subscribe(StartNextEnemyTurn)
-                .AddTo(this);
-
-            enemy.OnDefeated
-                .Subscribe(CheckEnemiesDefeatCondition)
-                .AddTo(this);
+                enemy.OnDefeated
+                    .Subscribe(CheckEnemiesDefeatCondition)
+                    .AddTo(this);
             
-            _enemies.Add(enemy);
+                _enemies.Add(enemy);
+            });
         }
 
         private void EndEnemyTurn()

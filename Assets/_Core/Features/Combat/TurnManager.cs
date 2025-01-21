@@ -50,7 +50,7 @@ namespace _Core.Features.Combat
         public void NextStep()
         {
             CurrentState = (EnumTurnState) (((int) CurrentState + 1) % _stateAmount);
-            Debug.Log(CurrentState);
+            //Debug.Log(CurrentState);
             StartStep(CurrentState);
         }
 

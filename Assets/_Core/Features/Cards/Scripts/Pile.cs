@@ -6,20 +6,11 @@ namespace _Core.Features.Cards.Scripts
 {
     public class Pile
     {
-        public ReactiveProperty<int> PileCount = new ReactiveProperty<int>();
-        public ReactiveProperty<int> DiscardCount = new ReactiveProperty<int>();
+        public ReactiveProperty<int> PileCount = new ();
+        public ReactiveProperty<int> DiscardCount = new ();
         
         private List<CardConfig> _cardsInPile;
         private List<CardConfig> _discardedCards;
-
-        public Pile()
-        {
-            _cardsInPile = new List<CardConfig>();
-            _discardedCards = new List<CardConfig>();
-            
-            PileCount.Value = _cardsInPile.Count;
-            DiscardCount.Value = 0;
-        }
 
         public Pile(List<CardConfig> cardsInPile)
         {
@@ -30,6 +21,12 @@ namespace _Core.Features.Cards.Scripts
 
             PileCount.Value = _cardsInPile.Count;
             DiscardCount.Value = 0;
+        }
+
+        public void Destroy()
+        {
+            PileCount.OnCompleted();
+            DiscardCount.OnCompleted();
         }
 
         public CardConfig DrawCard()
@@ -52,7 +49,7 @@ namespace _Core.Features.Cards.Scripts
             DiscardCount.Value = _discardedCards.Count;
         }
 
-        public void Shuffle()
+        private void Shuffle()
         {
             _cardsInPile.AddRange(_discardedCards);
             _discardedCards.Clear();

@@ -12,7 +12,7 @@ namespace _Core.Features.Combat
         private CombatUI _combatUI;
         private PileManager _pileManager;
         private CombatCharacterManager _characterManager;
-        private CombatEndHandler _combatEndHandler;
+        private CombatManager _combatManager;
 
         #endregion
 
@@ -27,14 +27,19 @@ namespace _Core.Features.Combat
             , CombatUI combatUI
             , PileManager pileManager
             , CombatCharacterManager characterManager
-            , CombatEndHandler combatEndHandler)
+            , CombatManager combatManager)
         {
             _turnManager = turnManager;
             _combatUI = combatUI;
             _pileManager = pileManager;
             _characterManager = characterManager;
-            _combatEndHandler = combatEndHandler;
+            _combatManager = combatManager;
+        }
 
+        public void StartBattle()
+        {
+            _disposable = new CompositeDisposable();
+            
             SetupTurnManager();
             SetupUI();
             SetupCharacterManager();
@@ -97,14 +102,14 @@ namespace _Core.Features.Combat
             _characterManager.OnPlayerDefeated
                 .Subscribe(_ =>
                 {
-                    _combatEndHandler.LosePlayer();
+                    _combatManager.LosePlayer();
                 })
                 .AddTo(_disposable);
             
             _characterManager.OnAllEnemyDefeated
                 .Subscribe(_ =>
                 {
-                    _combatEndHandler.WinPLayer();
+                    _combatManager.WinPLayer();
                 })
                 .AddTo(_disposable);
         }

@@ -9,7 +9,7 @@ namespace _Core.Features.Combat
         [SerializeField] private PileManager _pileManager;
         [SerializeField] private CombatCharacterManager _combatCharacterManager;
         [SerializeField] private CombatUI _combatUI;
-        [SerializeField] private CombatEndHandler _combatEndHandler;
+        [SerializeField] private CombatManager _combatManager;
 
         private TurnManager _turnManager;
         private CombatEventBus _combatEventBus;
@@ -20,16 +20,16 @@ namespace _Core.Features.Combat
             _combatEventBus = new CombatEventBus();
             
             _combatUI.Init();
-            _combatCharacterManager.Init();
             _pileManager.Init(_combatCharacterManager);
-            _combatEventBus.Init(_turnManager, _combatUI, _pileManager, _combatCharacterManager, _combatEndHandler);
+            _combatManager.Init(_combatCharacterManager, _pileManager, _turnManager, _combatEventBus);
+            _combatEventBus.Init(_turnManager, _combatUI, _pileManager, _combatCharacterManager, _combatManager);
 
             StartBattle();
         }
 
-        public void StartBattle()
+        private void StartBattle()
         {
-            _turnManager.StartBattle();
+            _combatManager.StartBattle();
         }
     }
 }

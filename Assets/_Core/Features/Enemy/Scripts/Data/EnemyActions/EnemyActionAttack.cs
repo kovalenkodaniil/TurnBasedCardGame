@@ -9,7 +9,7 @@ namespace _Core.Features.Enemy.Data
     {
         public override void Apply(CombatCharacterManager characterManager, CombatEnemyCharacter enemy, int value)
         {
-            characterManager.Player.TakeDamage(value);
+            characterManager.PlayerModel.TakeDamage(value);
         }
     }
 }

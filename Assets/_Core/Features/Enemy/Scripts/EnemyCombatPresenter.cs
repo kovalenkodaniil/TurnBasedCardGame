@@ -23,6 +23,7 @@ namespace _Core.Features.Enemy.Scripts
         #endregion
 
         private CompositeDisposable _disposable;
+        private Coroutine _turnCoroutine;
         
         public CombatEnemyCharacter Model => _model;
 
@@ -34,12 +35,15 @@ namespace _Core.Features.Enemy.Scripts
             _characterManager = characterManager;
 
             _view.Init(_model);
+            _view.SetAvatar(config.art);
             
             OnTurnEnded = new Subject<EnemyCombatPresenter>();
             OnDefeated = new Subject<EnemyCombatPresenter>();
             _disposable = new CompositeDisposable();
-            _model.OnDied.Subscribe(Destroy).AddTo(_disposable);
+            _model.OnDied.Subscribe(Defeat).AddTo(_disposable);
         }
+
+        public void Disable() => Destroy();
 
         public bool IsMouseOnEnemy(Vector3 mousePosition) => _view.IsPositionOnCharacter(mousePosition);
 
@@ -51,12 +55,18 @@ namespace _Core.Features.Enemy.Scripts
 
         public void StartTurn()
         {
-            StartCoroutine(TurnRoutine());
+            _turnCoroutine = StartCoroutine(TurnRoutine());
         }
 
-        private void Destroy(CombatBaseCharacter character)
+        private void Defeat(CombatBaseCharacter character)
         {
             OnDefeated.OnNext(this);
+            Destroy();
+        }
+
+        private void Destroy()
+        {
+            StopCoroutine(_turnCoroutine);
             Object.Destroy(_view.gameObject);
             _model.Destroy();
             
@@ -70,7 +80,8 @@ namespace _Core.Features.Enemy.Scripts
                 bool isExecuted = default;
                 _model.ExecuteAction(_characterManager, () => isExecuted = true);
                 yield return new WaitUntil(() => isExecuted);
-                _view.PlayActionAnimation();
+                if (_view != null)
+                    _view.PlayActionAnimation();
                 yield return new WaitForSeconds(0.5f);   
             }
 

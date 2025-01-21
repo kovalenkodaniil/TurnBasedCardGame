@@ -25,8 +25,11 @@ namespace _Core.Features.CoroutineManager
 
         public static void StopCoroutine(Coroutine coroutine)
         {
-            if(coroutine != null)
+            if (coroutine != null)
+            {
+                Debug.Log("Stop coroutine");
                 instance.StopCoroutine(coroutine);
+            }
         }
 
         private static IEnumerator WaitRoutine(float seconds, Action after)

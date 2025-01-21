@@ -1,4 +1,6 @@
-﻿using R3;
+﻿using System;
+using R3;
+using R3.Triggers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +27,13 @@ namespace _Core.Features.Combat.CombatCharacters
 
             Model = character;
         }
+
+        public void OnDisable()
+        {
+            this.OnDisableAsObservable();
+        }
+
+        public bool SetAvatar(Sprite avatar) => _icon.sprite = avatar;
 
         public bool IsPositionOnCharacter(Vector3 position)
         {

@@ -27,6 +27,15 @@ namespace _Core.Features.Cards.Scripts
             _characterManager = characterManager;
         }
 
+        public void Reset()
+        {
+            _cards.ForEach(card =>
+            {
+                card.ClearSubs();
+                Destroy(card.gameObject);
+            });
+        }
+
         public void DrawHand()
         {
             for (int i = 0; i < 5; i++)
