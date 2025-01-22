@@ -22,7 +22,11 @@ namespace _Core.Features.Combat.CombatCharacters
 
         #region BasicMethods
 
-        public void Destroy() => OnDied.OnCompleted();
+        public void Destroy()
+        {
+            OnDied.OnCompleted();
+            OnAttacked.OnCompleted();
+        }
 
         public void TakeDamage(int damage)
         {
