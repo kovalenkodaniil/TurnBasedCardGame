@@ -1,115 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="190a6f3f-f815-4fbd-821d-ce78ddba349f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AddressableAssetSettings.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroupTemplates.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroupTemplates/Packed Assets.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroupTemplates/Packed Assets.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Battle.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Battle.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Built In Data.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Built In Data.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Cards.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Cards.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Enemy.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Enemy.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Popups.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Popups.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Battle_BundledAssetGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Battle_BundledAssetGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Battle_ContentUpdateGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Battle_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Built In Data_PlayerDataGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Built In Data_PlayerDataGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Cards_BundledAssetGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Cards_BundledAssetGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Cards_ContentUpdateGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Cards_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Enemy_BundledAssetGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Enemy_BundledAssetGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Enemy_ContentUpdateGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Enemy_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Popups_BundledAssetGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Popups_BundledAssetGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Popups_ContentUpdateGroupSchema.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Schemas/Popups_ContentUpdateGroupSchema.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptFastMode.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptFastMode.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedMode.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedMode.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedPlayMode.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptPackedPlayMode.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptVirtualMode.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DataBuilders/BuildScriptVirtualMode.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DefaultObject.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/DefaultObject.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/ProfileDataSourceSettings.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/ProfileDataSourceSettings.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/Windows.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/Goblinpng.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/Goblinpng.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/orc.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/Graphics/orc.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Orc.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Orc.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/MainMenu.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/MainMenu/CanvasCameraSetter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/MainMenu/CanvasCameraSetter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/MainMenu/GlobalCamera.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/MainMenu/GlobalCamera.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/MainMenu/MainMenu.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/MainMenu/MainMenu.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Graphics.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Graphics/panel_inventory 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Features/Popups/Graphics/panel_inventory 1.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Scenes/Battle.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Scenes/Battle.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Scenes/Boot.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Core/Scenes/Boot.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/ScriptableBuildPipeline.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TurnBasedCardGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Prefabs/---PlayerHand---.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Prefabs/---PlayerHand---.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Cards/Heal.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Cards/Heal.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Cards/Punch.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Cards/Punch.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Cards/Shield.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Cards/Shield.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Effects/Heal effect.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/SO/Effects/Heal effect.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/Card.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/CardAssets.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/CardAssets.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PileManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Cards/Scripts/PlayerHand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacterManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Prefabs/EnemyCharacter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatCharacters/Prefabs/EnemyCharacter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/CombatEntryPoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/TurnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI/ArcRender.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Combat/UI/ArcRender.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Goblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Goblin.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Ogr.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Ogr.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Shaman.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/Enemy/SO/Enemies/Shaman.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Graphics.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/Player.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Graphics/Player.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/Player.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Graphics/Player.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/counter_shield.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Graphics/counter_shield.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/counter_shield.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Graphics/counter_shield.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/enemy_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Graphics/enemy_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/enemy_2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Graphics/enemy_2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/enemy_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Graphics/enemy_3.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/PlayerLogic/SO/Player start data.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Core/Features/PlayerLogic/SO/Player start data.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Popups/panel_inventory 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Features/Popups/panel_inventory 1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Core/Scenes/Game.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="190a6f3f-f815-4fbd-821d-ce78ddba349f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -178,7 +70,7 @@
       <workItem from="1737102356781" duration="12888000" />
       <workItem from="1737304121612" duration="10098000" />
       <workItem from="1737385649084" duration="27587000" />
-      <workItem from="1737464459362" duration="20808000" />
+      <workItem from="1737464459362" duration="21657000" />
     </task>
     <servers />
   </component>
