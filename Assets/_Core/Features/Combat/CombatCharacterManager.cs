@@ -2,6 +2,7 @@
 using _Core.Features.Combat.CombatCharacters;
 using _Core.Features.Encounters;
 using _Core.Features.Enemy.Scripts;
+using _Core.Features.MainMenu;
 using R3;
 using R3.Triggers;
 using UnityEngine;
@@ -45,7 +46,7 @@ namespace _Core.Features.Combat
 
         public bool IsMouseOnPlayer(out CombatBaseCharacter player)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePosition = GlobalCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
 
             if (_player.IsPositionOnCharacter(mousePosition))
             {

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   art: {fileID: 21300000, guid: 3d7ad435d927a7143b8bc2f52d43d389, type: 3}
   name: "\u0428\u0430\u043C\u0430\u043D"
-  health: 8
+  health: 20
   turns:
   - actions:
     - action: {fileID: 11400000, guid: bfe5937fe4f2ae648a39828880be3648, type: 2}
-      value: 2
+      value: 8
   - actions:
     - action: {fileID: 11400000, guid: 4558e53fef448a6429ff6dd2958ec059, type: 2}
-      value: 1
+      value: 6
     - action: {fileID: 11400000, guid: d99d801a3a4040f48870d53f2168bbe6, type: 2}
-      value: 2
+      value: 4

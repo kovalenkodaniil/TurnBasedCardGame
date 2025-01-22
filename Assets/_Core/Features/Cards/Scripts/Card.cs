@@ -22,6 +22,7 @@ namespace _Core.Features.Cards.Scripts
         [SerializeField] private Image _art;
 
         public CardConfig Config { get; private set; }
+        public bool IsDiscarded { get; private set; }
 
         #region Dependencies
 
@@ -70,6 +71,7 @@ namespace _Core.Features.Cards.Scripts
         public void PlayDiscardAnimation(Vector3 discardPosition)
         {
             _isInteractable = false;
+            IsDiscarded = true;
             _tweenSequence = DOTween.Sequence();
 
             Vector3 midPoint = (transform.position + discardPosition) / 2;
@@ -90,6 +92,7 @@ namespace _Core.Features.Cards.Scripts
 
         public void PlayDrawAnimation(Transform startPosition, Vector3 handPosition, Transform newParent, float drawDelay)
         {
+            IsDiscarded = false;
             _tweenSequence = DOTween.Sequence();
 
             transform.SetParent(startPosition);
@@ -156,6 +159,8 @@ namespace _Core.Features.Cards.Scripts
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (!_isInteractable) return;
+            
             _arcRender.DrawArc(transform.position);
         }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using R3;
-using UnityEngine;
 
 namespace _Core.Features.Combat
 {
@@ -50,7 +49,6 @@ namespace _Core.Features.Combat
         public void NextStep()
         {
             CurrentState = (EnumTurnState) (((int) CurrentState + 1) % _stateAmount);
-            //Debug.Log(CurrentState);
             StartStep(CurrentState);
         }
 

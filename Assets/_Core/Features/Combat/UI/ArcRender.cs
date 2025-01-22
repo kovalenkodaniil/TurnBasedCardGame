@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Core.Features.MainMenu;
 using UnityEngine;
 
 namespace _Core.Features.Combat.UI
@@ -18,8 +19,10 @@ namespace _Core.Features.Combat.UI
         private GameObject arrowInstance;
         private Vector3 arrowDirrection;
 
-        public void Start()
+        public void Init()
         {
+            if (arrowInstance != null) return;
+            
             arrowInstance = Instantiate(arrowPrefab, poolContainer);
             arrowInstance.transform.localPosition = Vector3.zero;
             InitializeDotPoll(pollSize);
@@ -32,9 +35,10 @@ namespace _Core.Features.Combat.UI
             if (!poolContainer.gameObject.activeSelf)
                 EnableArc();
             
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePos = GlobalCamera.Camera.ScreenToWorldPoint(Input.mousePosition);
 
             mousePos.z = 0;
+            startPosition.z = 0;
 
             Vector3 startPos = startPosition;
             Vector3 midPoint = CalculateMidPoint(startPos, mousePos);

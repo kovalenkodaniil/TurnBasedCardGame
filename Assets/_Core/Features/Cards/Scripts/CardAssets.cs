@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Core.Features.Cards.Scripts
 {
@@ -9,9 +8,6 @@ namespace _Core.Features.Cards.Scripts
         [Header("Sprites")]
         public Sprite cardFace;
         public Sprite cardShirts;
-
-        [Header("Starting Pile")] 
-        public List<CardConfig> startingPile;
 
         [Header("Animation Setting")] 
         public float defaultScale;

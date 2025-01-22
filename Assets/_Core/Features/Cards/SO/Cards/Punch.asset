@@ -18,4 +18,4 @@ MonoBehaviour:
   targetType: 1
   effects:
   - effect: {fileID: 11400000, guid: 316a93adb103372419a43f58fb72341d, type: 2}
-    value: 2
+    value: 7

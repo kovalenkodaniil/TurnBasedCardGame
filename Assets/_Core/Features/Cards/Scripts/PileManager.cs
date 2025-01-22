@@ -2,6 +2,7 @@
 using System.Collections;
 using _Core.Features.Combat;
 using _Core.Features.PlayerLogic;
+using Core.Data;
 using UnityEngine;
 
 namespace _Core.Features.Cards.Scripts
@@ -12,6 +13,7 @@ namespace _Core.Features.Cards.Scripts
         [SerializeField] private PileUI _pileUI;
 
         private Pile _pile;
+        private CardAssets _cardAssets;
 
         public void Init(CombatCharacterManager characterManager, ManaCounter manaCounter)
         {
@@ -19,6 +21,7 @@ namespace _Core.Features.Cards.Scripts
 
             _pileUI.Init(_pile);
             _playerHand.Init(_pile, characterManager, manaCounter);
+            _cardAssets = StaticDataProvider.Get<CardDataProvider>().cardAssets;
         }
 
         public void Reset()
@@ -43,7 +46,7 @@ namespace _Core.Features.Cards.Scripts
             {
                 _playerHand.ClearHand();
             
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(_cardAssets.discardDuration);
             }
 
             callback?.Invoke();

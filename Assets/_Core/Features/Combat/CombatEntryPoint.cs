@@ -15,14 +15,13 @@ namespace _Core.Features.Combat
         private TurnManager _turnManager;
         private CombatEventBus _combatEventBus;
 
-        public void Awake()
+        public void Start()
         {
             _turnManager = new TurnManager();
             _combatEventBus = new CombatEventBus();
             
             _combatUI.Init();
             _manaCounter.Init();
-            _pileManager.Init(_combatCharacterManager, _manaCounter);
             _combatManager.Init(_combatCharacterManager, _pileManager, _turnManager, _combatEventBus, _manaCounter);
             _combatEventBus.Init(_turnManager, _combatUI, _pileManager, _combatCharacterManager, _combatManager, _manaCounter);
 

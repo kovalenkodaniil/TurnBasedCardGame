@@ -26,6 +26,8 @@ namespace _Core.Features.Cards.Scripts
 
         public void Init(Pile pile, CombatCharacterManager characterManager, ManaCounter manaCounter)
         {
+            _arcRender.Init();
+            
             _cards = new List<Card>();
             CardInHand = 0;
             _cardPool = new CardPool();
@@ -57,7 +59,7 @@ namespace _Core.Features.Cards.Scripts
         {
             for (int i = 0; i < _cards.Count; i++)
             {
-                if (_cards[i].gameObject.activeSelf)
+                if (!_cards[i].IsDiscarded)
                 {
                     DiscardCard(_cards[i]);
                 }

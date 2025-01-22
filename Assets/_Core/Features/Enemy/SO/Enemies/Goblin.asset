@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16b1f3be44ea4065a2bb20e58996732e, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
-  art: {fileID: 21300000, guid: 3d7ad435d927a7143b8bc2f52d43d389, type: 3}
+  art: {fileID: 21300000, guid: 5c6efe79539bca24f9e2e90aa794a8a8, type: 3}
   name: "\u0413\u043E\u0431\u043B\u0438\u043D"
-  health: 10
+  health: 34
   turns:
   - actions:
     - action: {fileID: 11400000, guid: d99d801a3a4040f48870d53f2168bbe6, type: 2}
-      value: 2
+      value: 6
   - actions:
     - action: {fileID: 11400000, guid: bfe5937fe4f2ae648a39828880be3648, type: 2}
-      value: 1
+      value: 4

@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16b1f3be44ea4065a2bb20e58996732e, type: 3}
-  m_Name: Ogr
+  m_Name: Orc
   m_EditorClassIdentifier: 
-  art: {fileID: 21300000, guid: 3d7ad435d927a7143b8bc2f52d43d389, type: 3}
-  name: "\u041E\u0433\u0440"
-  health: 14
+  art: {fileID: 21300000, guid: 379972b444328724090ecc16c6fe40a6, type: 3}
+  name: "\u041E\u0440\u043A"
+  health: 56
   turns:
   - actions:
     - action: {fileID: 11400000, guid: bfe5937fe4f2ae648a39828880be3648, type: 2}
-      value: 1
+      value: 5
     - action: {fileID: 11400000, guid: d99d801a3a4040f48870d53f2168bbe6, type: 2}
-      value: 2
+      value: 8
   - actions:
     - action: {fileID: 11400000, guid: d99d801a3a4040f48870d53f2168bbe6, type: 2}
-      value: 3
+      value: 12
   - actions:
     - action: {fileID: 11400000, guid: bfe5937fe4f2ae648a39828880be3648, type: 2}
-      value: 2
+      value: 4
     - action: {fileID: 11400000, guid: d99d801a3a4040f48870d53f2168bbe6, type: 2}
-      value: 1
+      value: 4

@@ -205,7 +205,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 2768933939394808979, guid: 36c5559078ca30c419262d386256a33e, type: 3}
   dotPrefab: {fileID: 4825461279837018705, guid: 76d80b8e0faecca409125276abeae73c, type: 3}
   pollSize: 30
-  spacing: 5
+  spacing: 0.5
   arrowAngleAdjustment: 90
   dotsToSkip: 0
   poolContainer: {fileID: 4707878711589772385}
